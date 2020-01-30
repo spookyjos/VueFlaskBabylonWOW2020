@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/base.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Courier+Prime&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Sacramento&display=swap" rel="stylesheet">
+    <meta charset="utf-8">
+    <title></title>
+    <!-- Link to the last version of BabylonJS -->
+    <script src="https://preview.babylonjs.com/babylon.js"></script>
+    <!-- Link to the last version of BabylonJS loaders to enable loading filetypes such as .gltf -->
+    <script src="https://preview.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+    <!-- Link to pep.js to ensure pointer events work consistently in all browsers -->
+    <script src="https://code.jquery.com/pep/0.4.1/pep.js"></script>
+    <script src="https://kit.fontawesome.com/9d877ab10a.js" crossorigin="anonymous"></script>
+    <!-- Link to DEVELOPMENT version of Vuejs, change to PRODUCTION VERSION when done with all the tweaking-->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  </head>
+  <body>
+
+    <div id="bar" class="sidebar">
+      <div class="container">
+        <div id="button">
+          <i class="fas fa-align-justify" v-on:click="toggleNav"></i>
+        </div>
+        <div id="exitbutton">
+          <i class="fas fa-times" v-on:click="toggleNav"></i>
+        </div>
+      </div>
+      <div id="links">
+        <h3><a href="{{ url_for('index') }}" class="home">HOME</a></h3>
+        <h3>ABOUT</h3>
+        <a href="{{ url_for('about') }}#IHPC" class="hyperlink">⯈ IHPC</a><br>
+        <a href="{{ url_for('about') }}#vidLab" class="hyperlink">⯈ IHPC001: Video Labelling</a><br>
+        <a href="{{ url_for('about') }}#virtSim" class="hyperlink">⯈ IHPC002: Virtual Simulator</a><br>
+        <br><h3>PRESENTABLES</h3>
+        <a href="{{ url_for('presentables') }}#vidLab" class="hyperlink">⯈ IHPC001: Video Labelling</a><br>
+        <a href="{{ url_for('presentables') }}#virtSim" class="hyperlink">⯈ IHPC002: Virtual Simulator</a><br>
+        <br><h3>REPORTS</h3>
+        <a href="{{ url_for('reports') }}#vidLab" class="hyperlink">⯈ IHPC001: Video Labelling</a><br>
+        <a href="{{ url_for('reports') }}#virtSim" class="hyperlink">⯈ IHPC002: Virtual Simulator</a><br>
+      </div>
+    </div>
+  <script src="{{ url_for('static', filename='scripts/base.js') }}"></script>
+  {% block content %}{% endblock %}
+  </body>
+</html>

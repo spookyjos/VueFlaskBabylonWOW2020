@@ -1,0 +1,158 @@
+a {
+  text-decoration: none;
+}
+
+#bar {
+  position:fixed;
+  background-image: linear-gradient(to right, white, #ffffff);
+  height: 550px;
+  border-radius: 0px 50px 50px 0px;
+  top:0px;
+  width: 25px;
+  left:0px;
+  transition: width 1s;
+  box-shadow: 1px 3px 5px 2px rgba(0, 0, 0, 0);
+}
+
+#button {
+  color:#4d4d4d;
+  top:10px;
+  left:10px;
+  border:30px;
+  visibility: visible;
+}
+
+i {
+  font-size: 1.5rem;
+  cursor:pointer;
+
+  }
+
+i:hover {
+  color:#cccccc;
+}
+
+#title {
+  /*font-family: 'Ubuntu', sans-serif; */
+  font-family: "Helvetica", Helvetica, Arial, sans-serif;
+  padding: 0px 0;
+  text-align:center;
+}
+
+#links {
+  visibility: hidden;
+  font-family: 'Quicksand', sans-serif;
+  text-align: left;
+  color: black;
+  padding: 10px;
+  opacity: 0;
+  transition: visibility 0s linear 700ms, opacity 6000ms;
+}
+
+h4 {
+  margin: 0px;
+  font-size: 70px;
+  font-weight: normal;
+
+}
+
+h5 {
+  padding: 0px;
+  font-size: 20px;
+  font-weight: normal;
+}
+#companyLogo{
+  padding: 0px;
+}
+
+#exitbutton {
+  color:#4d4d4d;
+  top:20px;
+  right:20px;
+  border:100px;
+  visibility: hidden;
+}
+
+.container {
+  border-radius: 0px 50px 50px 0px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+.hyperlink {
+  color: black;
+
+}
+
+.home {
+  color: black;
+  text-decoration: none;
+}
+
+#about {
+  text-align: center;
+  font-size: 120px;
+  font-family: 'Sacramento', cursive;
+}
+
+.posts {
+  margin: 0 auto;
+  width: 700px;
+  font-size: 25px;
+  text-align: center;
+  font-family: "Helvetica", Helvetica, Arial, sans-serif;
+}
+
+.bigger {
+  font-size:300%;
+}
+
+hr {
+  width: 700px;
+}
+
+#presentables {
+  text-align: center;
+  font-size: 120px;
+  font-family: 'Sacramento', cursive;
+}
+
+#renderCanvas {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin:auto;
+    width   : 70%;
+    height  : 70%;
+    touch-action: none;
+    z-index:-1;
+    padding-bottom: 60px;
+}
+
+#vlabpres {
+  margin: 0 auto;
+  width: 800px;
+  font-size: 25px;
+  text-align: center;
+  font-family: "Helvetica", Helvetica, Arial, sans-serif;
+}
+
+#vsimpres {
+  margin: 0 auto;
+  width: 800px;
+  font-size: 25px;
+  text-align: center;
+  font-family: "Helvetica", Helvetica, Arial, sans-serif;
+}
+
+.smallprint {
+  font-size: 15px;
+}
+
+#reports {
+  text-align: center;
+  font-size: 120px;
+  font-family: 'Sacramento', cursive;
+}
