@@ -7,62 +7,173 @@
     </div>
     <br><br><br>
     <div id="vlabpres">
-      <p>IHPC001: Screenshots of a set of video clips with all activities labelled</p>
-      <p class="smallprint" id="smol1">(Unfortunately, due to the fact that the videos belong to the company's CCTV footage, we cannot show them. Instead, screenshots of the track with movement durations will be shown.)</p>
-      <!-- ASK CHEN YI IF CAN USE ONE SS OF FOOTAGE, WITH BOX ON PERSON SAYING PERSON1 -->
+      <p>IHPC001: Screenshots of a set of video clips with all activities labelled, as well as screenshots of Flask takeaways</p>
+      <br><br>
       <!-- insert screenshots -->
+      <img class="images" src="../static/img/unknown.png"><br>
+      <p class="caption">The total number of video clips we had to annotate.</p><br><br>
+      <img class="images" src="{{ url_for('static', filename='img/ss1.png') }}"><br>
+      <p class="caption">An example of video with annotations, as well as comments.</p><br><br>
+      <img class="images" src="{{ url_for('static', filename='img/people.png') }}"><br>
+      <p class="caption">A screenshot of the tagging of people done by the deep learning system.</p><br><br>
+      <img class="images" src="{{ url_for('static', filename='img/tool.png') }}"><br>
+      <p class="caption">How the functional part of the labelling tool looks like, as well as some annotations being done.</p><br><br>
+      <br><br>
+      <div class="dblpic">
+        <img class="imagesdiv" src="{{ url_for('static', filename='img/init.png') }}">
+        <img class="imagesdiv" src="{{ url_for('static', filename='img/routes.png') }}">
+      </div><br>
+      <p class="caption">Python files used to initialize and provide different routes for the Flask application.</p><br><br>
+      <img class="images" src="{{ url_for('static', filename='img/api.png') }}"><br>
+      <p class="caption">The Application Programming Interfaces (APIs) used in this project.</p><br><br>
+      <img class="images" src="{{ url_for('static', filename='img/jinja.png') }}"><br>
+      <p class="caption">Jinja templating (the code in the curly braces) allows for easy page inheritance. For instance, all the pages on this website inherit the sidebar.</p><br><br>
+      <img class="images" src="{{ url_for('static', filename='img/javascript.png') }}"><br>
+      <p class="caption">The JavaScript used to enable the sidebar functionality, as well as the project structure.</p><br><br>
+
+
+
+
     </div>
+
     <br><br><br><hr><br><br><br>
+
   </section>
   <section id="virtSim">
+    <!-- Link to the last version of BabylonJS -->
+    <script src="https://preview.babylonjs.com/babylon.js"></script>
+    <script src="https://preview.babylonjs.com/loaders/babylonjs.loaders.js"></script>
     <div id="vsimpres">
       <p>IHPC002: 3D Models created by the students</p>
       <p class="smallprint" id="smol2">(Models can be interacted with by clicking the canvas, using W,A,S,D to control models.)</p>
-      <canvas id="renderCanvas"></canvas>
-      <script>
-        window.addEventListener('DOMContentLoaded', function() {
-          // All the following code is entered here.
-          var canvas = document.getElementById('renderCanvas');
+      <br><br>
+
+      <canvas id="canvas"></canvas>
+      <p class="caption">A bowling ball, made from a Blender mesh. Use the Mouse1 button to interact with this object.</p>
+      <br><br><br>
+      <canvas id="canvas2"></canvas>
+      <p class="caption">A bishop, designed using Blender meshes. Interact only using the Mouse1 button.</p>
+      <br><br><br>
+      <canvas id="canvas3"></canvas>
+      <p class="caption">A pawn, designed using Blender meshes. Interact only using the Mouse1 button.</p>
+
+    </div>
+    <div>
+      <script type="text/javascript">
+          var canvas = document.getElementById("canvas");
           var engine = new BABYLON.Engine(canvas, true);
-          var createScene = function() {
-              // Create a basic BJS Scene object.
-              var scene = new BABYLON.Scene(engine);
 
-              // Create a FreeCamera, and set its position to (x:0, y:5, z:-10).
-              var camera = new BABYLON.FreeCamera('camera', new BABYLON.Vector3(0, 5,-10), scene);
+          // here the doc for Load function: //doc.babylonjs.com/api/classes/babylon.sceneloader#load
+          BABYLON.SceneLoader.Load("", "static/scenes/bowlball.babylon", engine, function (scene) {
 
-              // Target the camera to scene origin.
-              camera.setTarget(BABYLON.Vector3.Zero());
 
-              // Attach the camera to the canvas.
-              camera.attachControl(canvas, false);
+              //as this .babylon example hasn't camera in it, we have to create one
+              var camera = new BABYLON.ArcRotateCamera("Camera", 0, 0, 1.35, BABYLON.Vector3(0, 0, 0), scene);
+              camera.attachControl(canvas, true);
+              camera.lowerRadiusLimit = 1.35;
+              camera.upperRadiusLimit = 1.35;
+              camera.useBouncingBehavior = false;
 
-              // Create a basic light, aiming 0,1,0 - meaning, to the sky.
-              var light = new BABYLON.HemisphericLight('light1', new BABYLON.Vector3(0,1,0), scene);
+            //var light1 = new BABYLON.PointLight("pointLight", new BABYLON.Vector3(0.6, 0.6, -0.6), scene);
+              var light2 = new BABYLON.HemisphericLight("hemiLight", new BABYLON.Vector3(1, 1, -1), scene);
 
-              // Create a built-in "sphere" shape.
-              var sphere = BABYLON.MeshBuilder.CreateSphere('sphere', {segments:16, diameter:2}, scene);
 
-              // Move the sphere upward 1/2 of its height.
-              sphere.position.y = 1;
+              scene.clearColor = new BABYLON.Color3(1, 1, 1);
+              scene.ambientColor = new BABYLON.Color3.White;
 
-              // Create a built-in "ground" shape.
-              var ground = BABYLON.MeshBuilder.CreateGround('ground1', {height:6, width:6, subdivisions: 2}, scene);
 
-              // Return the created scene.
-              return scene;
-          }
-          var scene = createScene();
-          engine.runRenderLoop(function() {
-              scene.render();
+              engine.runRenderLoop(function() {
+                  scene.render();
+              });
+
+              window.addEventListener("resize", function () {
+                  engine.resize();
+              });
           });
-          window.addEventListener('resize', function() {
-              engine.resize();
+
+          var canvas2 = document.getElementById("canvas2");
+          var engine2 = new BABYLON.Engine(canvas2, true);
+
+          // here the doc for Load function: //doc.babylonjs.com/api/classes/babylon.sceneloader#load
+          BABYLON.SceneLoader.Load("", "static/scenes/pastor.babylon", engine2, function (scene2) {
+
+
+            // Parameters: alpha, beta, radius, target position, scene
+            var camera2 = new BABYLON.ArcRotateCamera("Camera2", 0, 1.57, 10, new BABYLON.Vector3(0, 3, 0), scene2);
+            // Positions the camera overwriting alpha, beta, radius
+            //camera2.setPosition(new BABYLON.Vector3(0, 0, -20));
+            //var camera2 = new BABYLON.UniversalCamera("UniversalCamera", new BABYLON.Vector3(0, 3, -10), scene2);
+            //camera2.setTarget(new BABYLON.Vector3(0,3,0));
+            camera2.lowerRadiusLimit = 10;
+            camera2.upperRadiusLimit = 10;
+            camera2.attachControl(canvas2, true);
+
+
+          // This attaches the camera to the canvas
+            //camera2.attachControl(canvas2, true);
+
+              //camera.useBouncingBehavior = false;
+
+            //var light1 = new BABYLON.PointLight("pointLight", new BABYLON.Vector3(0.6, 0.6, -0.6), scene);
+              var light3 = new BABYLON.HemisphericLight("hemiLight2", new BABYLON.Vector3(6, -12, -9), scene2);
+
+              scene2.activeCamera = camera2;
+              scene2.clearColor = new BABYLON.Color3(0.5, 0.5, 0.8);
+              scene2.ambientColor = new BABYLON.Color3.White;
+
+
+              engine2.runRenderLoop(function() {
+                  scene2.render();
+              });
+
+              window.addEventListener("resize", function () {
+                  engine2.resize();
+              });
           });
-        });
+
+          var canvas3 = document.getElementById("canvas3");
+          var engine3 = new BABYLON.Engine(canvas3, true);
+
+          // here the doc for Load function: //doc.babylonjs.com/api/classes/babylon.sceneloader#load
+          BABYLON.SceneLoader.Load("", "static/scenes/pawn.babylon", engine3, function (scene3) {
+
+
+              //as this .babylon example hasn't camera in it, we have to create one
+              var camera3 = new BABYLON.ArcRotateCamera("Camera3", 0, 1.57, 10, new BABYLON.Vector3(0, 3, 0), scene3);
+              camera3.lowerRadiusLimit = 10;
+              camera3.upperRadiusLimit = 10;
+              camera3.attachControl(canvas3, true);
+              //camera.lowerRadiusLimit = 1.21;
+              //camera.upperRadiusLimit = 1.21;
+              //camera.useBouncingBehavior = false;
+
+            //var light1 = new BABYLON.PointLight("pointLight", new BABYLON.Vector3(0.6, 0.6, -0.6), scene);
+              var light4 = new BABYLON.HemisphericLight("hemiLight2", new BABYLON.Vector3(6, -12, -9), scene3);
+
+              scene3.activeCamera = camera3;
+              scene3.clearColor = new BABYLON.Color3(0.5, 0.8, 0.5);
+              scene3.ambientColor = new BABYLON.Color3.White;
+
+
+              engine3.runRenderLoop(function() {
+                  scene3.render();
+              });
+
+              window.addEventListener("resize", function () {
+                  engine3.resize();
+              });
+          });
+
       </script>
     </div>
     <br><br><br>
+    <div id="vsimpres2">
+      <a class="images" href="{{ url_for('unity1') }}"><img class="images" src="{{ url_for('static', filename='img/unity1.png') }}"></a>
+      <p class="caption">A game designed using Unity. Click on the image to access the game, interact using the WASD Keys + Space Bar.</p>
+      <br><br><br>
+      <a class="images" href="{{ url_for('unity2') }}"><img class="images" src="{{ url_for('static', filename='img/unity2.png') }}"></a>
+      <p class="caption">A robotic arm, designed using Blender and then imported into Unity. Click on the image to access the Unity build, then interact using the A and D keys, as well as the draggers in the game window.</p>
+    </div>
   </section>
   <br><br><br>
 {% endblock%}

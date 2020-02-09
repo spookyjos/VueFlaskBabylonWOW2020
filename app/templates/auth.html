@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div id="reports">
+  <span>reports</span>
+</div>
+<br><br><br><br><br><br><br>
+<div id="loginbox">
+  <div id="loginboxbox">
+    <form name="login" id="loginpanel">
+        Password: <input type="password" name="pswrd"/>
+        <input type="button" onclick="check(this.form)" value="Login"/>
+    </form>
+    <script>
+    console.log("login page js working!")
+    function check(form) { /*function to check userid & password*/
+      /*the following code checkes whether the entered userid and password are matching*/
+        if(form.pswrd.value == "WOWIHPC2020ADMIN") {
+            location.replace("{{ url_for('reports') }}")/*opens the target page while Id & password matches*/
+            }
+        else {
+            alert("Error Password or Username")
+            location.replace("{{ url_for('auth') }}")/*displays error message*/
+            }
+      }
+      $(document).ready(function() {
+        $(window).keydown(function(event){
+          if(event.keyCode == 13) {
+            event.preventDefault();
+            return false;
+          }
+        });
+      });
+    </script>
+    <p class="caption2">This page has been made accessible only to Tutors.</p>
+  </div>
+</div>
+
+{% endblock %}

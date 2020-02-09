@@ -7,16 +7,22 @@
     <link href="https://fonts.googleapis.com/css?family=Quicksand&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Sacramento&display=swap" rel="stylesheet">
     <meta charset="utf-8">
-    <title></title>
-    <!-- Link to the last version of BabylonJS -->
-    <script src="https://preview.babylonjs.com/babylon.js"></script>
-    <!-- Link to the last version of BabylonJS loaders to enable loading filetypes such as .gltf -->
-    <script src="https://preview.babylonjs.com/loaders/babylonjs.loaders.min.js"></script>
+    <title>WOW!IHPC</title>
+    <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='img/favicon.png') }}">
+    <!--Link to jQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!-- Link to pep.js to ensure pointer events work consistently in all browsers -->
     <script src="https://code.jquery.com/pep/0.4.1/pep.js"></script>
     <script src="https://kit.fontawesome.com/9d877ab10a.js" crossorigin="anonymous"></script>
     <!-- Link to DEVELOPMENT version of Vuejs, change to PRODUCTION VERSION when done with all the tweaking-->
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- For Unity Game #1 -->
+    
+    <script src="{{ url_for('static', filename='TemplateData/UnityProgress.js') }}"></script>
+    <script src="{{ url_for('static', filename='Build/UnityLoader.js') }}"></script>
+    <script>
+      var gameInstance = UnityLoader.instantiate("gameContainer", "{{ url_for('static', filename='Build/New folder.json') }}", {onProgress: UnityProgress});
+    </script>
   </head>
   <body>
 
@@ -38,9 +44,7 @@
         <br><h3>PRESENTABLES</h3>
         <a href="{{ url_for('presentables') }}#vidLab" class="hyperlink">⯈ IHPC001: Video Labelling</a><br>
         <a href="{{ url_for('presentables') }}#virtSim" class="hyperlink">⯈ IHPC002: Virtual Simulator</a><br>
-        <br><h3>REPORTS</h3>
-        <a href="{{ url_for('reports') }}#vidLab" class="hyperlink">⯈ IHPC001: Video Labelling</a><br>
-        <a href="{{ url_for('reports') }}#virtSim" class="hyperlink">⯈ IHPC002: Virtual Simulator</a><br>
+        <a href="{{ url_for('auth') }}" class="hyperlink"><br><h3>REPORTS</h3></a><br>
       </div>
     </div>
   <script src="{{ url_for('static', filename='scripts/base.js') }}"></script>

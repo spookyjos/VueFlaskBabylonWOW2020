@@ -1,4 +1,4 @@
-from flask import render_template
+from flask import render_template, url_for
 from app import app
 
 @app.route('/')
@@ -14,6 +14,18 @@ def about():
 def presentables():
     return render_template('presentables.html')
 
-@app.route('/reports')
+@app.route('/reports39219309123123129382913891283981238283982')
 def reports():
     return render_template('reports.html')
+
+@app.route('/auth')
+def auth():
+    return render_template('auth.html')
+
+@app.route('/presentables/unity1')
+def unity1():
+    return render_template('personindex.html')
+
+@app.route('/presentables/unity2')
+def unity2():
+    return render_template('roboticindex.html')

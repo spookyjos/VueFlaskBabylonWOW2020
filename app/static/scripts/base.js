@@ -15,8 +15,8 @@ var bar = new Vue({
         document.getElementById("exitbutton").style.visibility = "hidden";
         document.getElementById("bar").style.borderRadius = "0px 50px 50px 0px";
         document.getElementById("bar").style.border = "1px solid #a6a6a600";
-        document.getElementById("bar").style.backgroundImage = "linear-gradient(to right, white, white)";
-                document.getElementById("bar").style.boxShadow = "0 0 0 0 rgba(0, 0, 0, 0.2)";
+        document.getElementById("bar").style.backgroundImage = "linear-gradient(to right, #ffffff00, #ffffff00)";
+        document.getElementById("bar").style.boxShadow = "0 0 0 0 rgba(0, 0, 0, 0.2)";
         }
       else {
         document.getElementById("bar").style.width = "275px";
@@ -28,8 +28,8 @@ var bar = new Vue({
         document.getElementById("exitbutton").style.visibility = "visible";
         document.getElementById("bar").style.borderRadius = "0px 50px 50px 0px";
         document.getElementById("bar").style.border = "1px solid #ffffff66";
-        document.getElementById("bar").style.backgroundColor = "#1affa3ff";
-                document.getElementById("bar").style.boxShadow = "1px 3px 5px 2px rgba(0, 0, 0, 0.2)";
+        document.getElementById("bar").style.backgroundColor = "#ffffff";
+        document.getElementById("bar").style.boxShadow = "1px 3px 5px 2px rgba(0, 0, 0, 0.2)";
 
       }
     }

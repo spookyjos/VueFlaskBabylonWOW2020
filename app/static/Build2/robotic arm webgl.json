@@ -1,0 +1,13 @@
+{
+"companyName": "DefaultCompany",
+"productName": "robot arm",
+"dataUrl": "robotic arm webgl.data.unityweb",
+"wasmCodeUrl": "robotic arm webgl.wasm.code.unityweb",
+"wasmFrameworkUrl": "robotic arm webgl.wasm.framework.unityweb",
+"TOTAL_MEMORY": 268435456,
+"graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20",
+"cacheControl": {"default": "must-revalidate"}
+}
