@@ -1,1 +1,1 @@
-web: flask db upgrade; flask translate compile; gunicorn WOWWIKI:app
+web: flask db upgrade; flask translate compile; gunicorn VueFlaskBabylonWOW2020:app
